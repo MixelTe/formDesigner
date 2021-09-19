@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form Designer</title>
+	<link rel="stylesheet" type="text/css" href="popup.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<script src="out/main.js" type="module"></script>
+</head>
+<body>
+	<div class="canvas">
+		<canvas id="canvas"></canvas>
+	</div>
+	<div class="toolbar">
+		<h1>Form Designer</h1>
+		<h2>Form:</h2>
+		<table>
+			<tr>
+				<td><span>Margin: </span></td>
+				<td><input type="number" id="inp_margin"></td>
+				<td><span>px</span></td>
+			</tr>
+			<tr>
+				<td><span>Cell size: </span></td>
+				<td><input type="number" id="inp_cellSize"></td>
+				<td><span>px</span></td>
+			</tr>
+			<tr>
+				<td><span>Width: </span></td>
+				<td><input type="number" id="inp_formWidth"></td>
+			</tr>
+			<tr>
+				<td><span>Height: </span></td>
+				<td><input type="number" id="inp_formHeight"></td>
+			</tr>
+		</table>
+		<h2>Objects:</h2>
+		<table>
+			<tr>
+				<td><span>Name: </span></td>
+				<td><input type="text" id="inp_name"></td>
+			</tr>
+			<tr>
+				<td><span>X: </span></td>
+				<td><input type="number" id="inp_x"></td>
+			</tr>
+			<tr>
+				<td><span>Y: </span></td>
+				<td><input type="number" id="inp_y"></td>
+			</tr>
+			<tr>
+				<td><span>Width: </span></td>
+				<td><input type="number" id="inp_width"></td>
+			</tr>
+			<tr>
+				<td><span>Height: </span></td>
+				<td><input type="number" id="inp_height"></td>
+			</tr>
+		</table>
+		<button id="btn_add">Add Object</button>
+		<button id="btn_remove">Remove Object</button>
+		<p>Left click - add object</p>
+		<p>Right click - remove object</p>
+		<p>Left drag - move object</p>
+		<p>Right drag - size object</p>
+		<h2>Result:</h2>
+		<button id="btn_copy">Copy</button>
+		<button id="btn_download">Download</button>
+	</div>
+</body>
+</html>
+
+<!-- <body style="margin: 0px; min-height: 100%; display: flex; justify-content: center; align-items: center;">
+	<div style="width: 1000px; height: 700px; box-shadow: 0px 0px 20px blue">
+		<canvas id="canvas">Canvas</canvas>
+	</div>
+	<canvas id="canvas" style="width: 100%; height: 100%;">Canvas</canvas>
+</body> -->
