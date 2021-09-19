@@ -1,26 +1,20 @@
-import { Form } from "./form";
-import { Rect } from "./rect";
-
-export function genPy(form: Form, rects: Rect[])
-{
-	let text = ""
-	text += header;
-	text += genForm(form);
-	rects.forEach(rect => {
-		text += genRect(rect, form);
-	});
-	text += footer;
-	return text;
+export function genPy(form, rects) {
+    let text = "";
+    text += header;
+    text += genForm(form);
+    rects.forEach(rect => {
+        text += genRect(rect, form);
+    });
+    text += footer;
+    return text;
 }
-function genForm(form: Form)
-{
-	return `        self.setGeometry(300, 300, ${form.width * form.cellSize + form.margin * 2}, ${form.height * form.cellSize + form.margin * 2})
+function genForm(form) {
+    return `        self.setGeometry(300, 300, ${form.width * form.cellSize + form.margin * 2}, ${form.height * form.cellSize + form.margin * 2})
         self.setWindowTitle("Title")
         fontSize = 15`;
 }
-function genRect(rect: Rect, form: Form)
-{
-	return `
+function genRect(rect, form) {
+    return `
 
         self.${rect.name} = QLabel(self)
         self.${rect.name}.move(${rect.x * form.cellSize + form.margin}, ${rect.y * form.cellSize + form.margin})
@@ -28,9 +22,8 @@ function genRect(rect: Rect, form: Form)
         self.${rect.name}.setText("${rect.name}")
         f = self.${rect.name}.font()
         f.setPointSize(fontSize)
-        self.${rect.name}.setFont(f)`
+        self.${rect.name}.setFont(f)`;
 }
-
 const header = `import sys
 
 from PyQt5.QtWidgets import QApplication, QWidget
