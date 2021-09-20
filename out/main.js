@@ -43,6 +43,7 @@ let rectMoveDX = 0;
 let rectMoveDY = 0;
 let rectToSize = null;
 let rectSizeChanged = false;
+let rectJustCreated = false;
 canvas.addEventListener("mousedown", e => {
     const x = e.offsetX - offSetX;
     const y = e.offsetY - offSetY;
@@ -69,6 +70,7 @@ canvas.addEventListener("mousedown", e => {
         const y = Math.floor((e.offsetY - offSetY) / cellSize);
         if (x >= 0 && y >= 0 && x < form.width && y < form.height) {
             const rect = addRect(null, x, y);
+            rectJustCreated = true;
             rectSizeChanged = false;
             rectToSize = rect;
         }
@@ -109,6 +111,10 @@ canvas.addEventListener("mouseup", e => {
     else if (rectToSize != null) {
         rectToSize = null;
         drawAll();
+        if (rectJustCreated) {
+            rectJustCreated = false;
+            return;
+        }
         if (rectSizeChanged)
             return;
         const x = e.offsetX - offSetX;
